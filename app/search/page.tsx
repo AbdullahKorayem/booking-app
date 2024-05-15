@@ -19,7 +19,7 @@ export default async function page({ searchParams }: Props) {
 
     // const result=await fetchResults(searchParams)
 
-    if(!result) return <div>No results....</div>
+    // if(!result) return <div>No results....</div>
     return (
         <div>
 
