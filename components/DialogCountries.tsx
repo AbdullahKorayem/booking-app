@@ -105,7 +105,7 @@ export default function DialogCountries() {
                                 leaveTo="transform scale-95 opacity-0"
                             >
                             <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
-                                <div className="mt-2 overflow-auto grid grid-cols-2 gap-2 max-h-96" >
+                                <div className="mt-2 overflow-auto grid grid-cols-2 gap-2 max-h-96 " >
                                     {countries ? (
                                         countries?.map((item: any) => (
                                             <div key={item.name} className="flex space-x-3  items-center hover:bg-gray-100 p-3 rounded-md ">

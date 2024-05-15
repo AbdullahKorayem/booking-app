@@ -23,9 +23,9 @@ export default function Home() {
             Most Popular Choices For Travellers From Around The World
           </p>
         </div>
-        <div className="flex space-x-4 py-5 overflow-x-scroll">
+        <div className="flex space-x-4 py-5 overflow-x-scroll ">
           {trending_data.map((item) => (
-            <div key={item.id} className="space-y-1 shrink-0 cursor-pointer">
+            <div key={item.id} className="space-y-1 shrink-0 cursor-pointer shadow-md rounded-lg p-2">
               <Image
                 key={item.id}
                 width={300}

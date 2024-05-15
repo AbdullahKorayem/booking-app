@@ -17,10 +17,10 @@ import {
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Input } from "@/components/ui/input"
-import { SWMIcon } from 'react-swm-icon-pack';
 import { Calendar } from "./ui/calendar";
 
 import { toast } from "@/components/ui/use-toast"
+import { CalendarPlus2 } from "lucide-react"
 
 export default function AirPortTaxiForm() {
 
@@ -63,7 +63,7 @@ export default function AirPortTaxiForm() {
 
         <Form {...form} >
             <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col lg:flex-row lg:max-w-6xl lg:mx-auto items-center justify-center space-x-0 lg:space-x-2 space-y-4 lg:space-y-0 rounded-lg ">
-               
+
                 <FormField
                     control={form.control}
                     name="type"
@@ -97,8 +97,8 @@ export default function AirPortTaxiForm() {
                         </FormItem>
                     )}
                 />
-             
-            
+
+
                 <div className="grid w-full lg:max-w-sm items-center gap-1.5">
                     <FormField control={form.control}
                         name="PickUpLocation"
@@ -146,7 +146,7 @@ export default function AirPortTaxiForm() {
                                             className={`w-full lg:w-[300px] justify-start text-left font-normal gap-3 ${field.value?.from ? "text-muted-foreground" : ""
                                                 }`}
                                         >
-                                            <SWMIcon name="CalendarPlus" set="broken" color="black" size={22} className="gap-1 h-4 opacity-50" />
+                                            <CalendarPlus2 />
                                             {field.value?.from ? (
                                                 field.value?.to ? (
                                                     <>
@@ -196,10 +196,10 @@ export default function AirPortTaxiForm() {
                         Search
                     </Button>
                 </div>
-            
-        </form>
 
-            </Form >
-            )
-        
+            </form>
+
+        </Form >
+    )
+
 }
