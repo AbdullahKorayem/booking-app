@@ -104,7 +104,7 @@ export default function Header() {
                             {/* Your content here */}
                             <Popover.Panel className="absolute bg-white -left-8 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl shadow-lg ring-1 ring-gray-900/5 ">
                                 <div className="p-4">
-                                    {products.map((item) => (
+                                    {products?.map((item) => (
                                         <div key={item.name} className=" group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-100 hover:duration-700">
                                             <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 hover:duration-1000">
                                                 {React.cloneElement(item.icon, { color: "#013B94", strokeWidth: 1.8, size: 27 })}
@@ -121,7 +121,7 @@ export default function Header() {
                                     ))}
                                 </div>
                                 <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50 hover:duration-700">
-                                    {callsToAction.map((item) => (<a key={item.name} href={item.href} className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-smeibold leading-6 text-[#013B94] hover:bg-gray-200 hover:duration-700">
+                                    {callsToAction?.map((item) => (<a key={item.name} href={item.href} className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-smeibold leading-6 text-[#013B94] hover:bg-gray-200 hover:duration-700">
                                         {React.cloneElement(item.icon, { color: "#013B94", strokeWidth: 1.8, size: 27 })}
 
                                     </a>))}
@@ -129,7 +129,7 @@ export default function Header() {
                             </Popover.Panel>
                         </Transition>
                     </Popover>
-                    {navLinks.map((item) => (<a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-white flex gap-1">{item.name} {item.icon} </a>))}
+                    {navLinks?.map((item) => (<a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-white flex gap-1">{item.name} {item.icon} </a>))}
 
                 </Popover.Group>
 

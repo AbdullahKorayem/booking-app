@@ -50,7 +50,7 @@ export default function Flights() {
               
               <DropdownMenuSeparator />
               <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-                {age.map((item,index)=>(<DropdownMenuRadioItem key={index} value={item}>{item}</DropdownMenuRadioItem>
+                {age?.map((item,index)=>(<DropdownMenuRadioItem key={index} value={item}>{item}</DropdownMenuRadioItem>
                 ))}
               </DropdownMenuRadioGroup>
             </DropdownMenuContent>
@@ -64,7 +64,7 @@ export default function Flights() {
               
               <DropdownMenuSeparator />
               <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-                {classes.map((item, index) => (<DropdownMenuRadioItem key={index} value={item}>{item}</DropdownMenuRadioItem>
+                {classes?.map((item, index) => (<DropdownMenuRadioItem key={index} value={item}>{item}</DropdownMenuRadioItem>
                 ))}
               </DropdownMenuRadioGroup>
             </DropdownMenuContent>

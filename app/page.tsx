@@ -24,7 +24,7 @@ export default function Home() {
           </p>
         </div>
         <div className="flex space-x-4 py-5 overflow-x-scroll ">
-          {trending_data.map((item) => (
+          {trending_data?.map((item) => (
             <div key={item.id} className="space-y-1 shrink-0 cursor-pointer shadow-md rounded-lg p-2">
               <Image
                 key={item.id}

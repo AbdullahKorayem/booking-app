@@ -124,10 +124,10 @@ export default function DialogCountries() {
                     )}
                 </Disclosure>
                 <div>
-                    {products.map((item, index) => (
+                    {products?.map((item, index) => (
                         <div key={index}>
                             <h1>{item.title}</h1>
-                            {item.items.map((subItem, subIndex) => (
+                            {item.items?.map((subItem, subIndex) => (
                                 <div key={subIndex} className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
                                     <div className="flex h-6 w-6 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200">
                                         {React.cloneElement(subItem.icon, { color: "#013B94", strokeWidth: 1.8, size: 27 })}

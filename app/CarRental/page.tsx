@@ -55,7 +55,7 @@ export default function CarRental() {
             Popular car hire brands
           </h1>
           <div className='flex gap-2 items-center'>
-            {carRents.map((car, index) => (
+            {carRents?.map((car, index) => (
               <div key={index} className='p-4 items-center text-center'>
                
                 <Image src={car.path} alt={car.name} width={200} height={200} className='border-[.5px] rounded-sm' />
@@ -71,7 +71,7 @@ export default function CarRental() {
         <section className="mx-auto max-w-7xl p-6 lg:px-8 mt-10">
     
           <div className='flex gap-2 items-center  justify-around'>
-            {services.map((car, index) => (
+            {services?.map((car, index) => (
               <div key={index} className='p-4 items-center text-center flex'>
 
                 <Image src={car.path} alt={car.name} width={75} height={75} className='rounded-sm' />
