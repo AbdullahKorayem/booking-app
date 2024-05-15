@@ -14,9 +14,8 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { CarFront } from 'lucide-react';
+import { CalendarPlus2, CarFront, Clock3 } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { SWMIcon } from 'react-swm-icon-pack';
 import { format } from 'date-fns'
 import { Calendar } from "./ui/calendar";
 
@@ -100,7 +99,7 @@ export default function CarRentalForm() {
                                             className={`w-full lg:w-[300px] justify-start text-left font-normal gap-2 text-black ${field.value?.from ? "text-muted-foreground" : ""
                                                 }`}
                                         >
-                                            <SWMIcon name="CalendarPlus" set="broken" color="black" size={22} className="gap-1 h-4 opacity-50" />
+                                            <CalendarPlus2 color="black" size={22} className="gap-1 h-4 opacity-50" />
                                             {field.value?.from ? (
                                                 field.value?.to ? (
                                                     <>
@@ -149,7 +148,7 @@ export default function CarRentalForm() {
                                             variant="outline"
                                             className={`lg:w-[100px] justify-start text-left text-black font-normal gap-2`}
                                         >
-                                            <SWMIcon name="Clock" set="broken" color="black" size={22} className="text-black" />
+                                            <Clock3 color="black" size={22} className="text-black" />
                                             {field.value ? (
                                                 <span>{field.value}</span>
                                             ) : (
@@ -184,7 +183,7 @@ export default function CarRentalForm() {
                                             className={`w-full lg:w-[300px] justify-start text-left font-normal gap-2 ${field.value?.from ? "text-muted-foreground" : ""
                                                 }`}
                                         >
-                                            <SWMIcon name="CalendarPlus" set="broken" color="black" size={22} className="gap-1 h-4 opacity-50" />
+                                            <CalendarPlus2 color="black" size={22} className="gap-1 h-4 opacity-50" />
                                             {field.value?.from ? (
                                                 field.value?.to ? (
                                                     <>
@@ -234,7 +233,7 @@ export default function CarRentalForm() {
                                             variant="outline"
                                             className={` lg:w-[100px] justify-start text-left font-normal gap-2 text-black `}
                                         >
-                                            <SWMIcon name="Clock" set="broken" color="black" size={22} className="gap-1 h-4 opacity-50" />
+                                            <Clock3 color="black" size={22} className="gap-1 h-4 opacity-50" />
                                             {field.value ? (
                                                 <span>{field.value}</span>
                                             ) : (
