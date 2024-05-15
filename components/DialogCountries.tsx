@@ -1,9 +1,8 @@
 import { Disclosure, Transition } from '@headlessui/react'
-import { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import toGetAllCountries from '@/lib/countries';
 import Image from 'next/image';
-import { SWMIcon } from 'react-swm-icon-pack';
-import { DialogTitle } from '@/components/ui/dialog';
+import { Biohazard, BrainCircuit, CalendarSearch, ChevronDown, ChevronUp, CircleCheck, Cog, Dna, FileCheck, HandCoins, Hospital, LogOut, Telescope, UserCheck, Users, Wind } from 'lucide-react';
 
 export default function DialogCountries() {
     let [isOpen, setIsOpen] = useState(false);
@@ -23,7 +22,7 @@ export default function DialogCountries() {
             try {
                 const data = await toGetAllCountries();
                 setCountries(data.data);
-               
+
             } catch (error) {
                 console.error('Error fetching countries:', error);
             }
@@ -31,47 +30,47 @@ export default function DialogCountries() {
 
         fetchCountries();
 
-        
+
     }, []);
 
     const products = [
         {
             title: "Genius loyalty programme",
             items: [
-                { name: "Genius loyalty programme", icon: "Dna" }
+                { name: "Genius loyalty programme", icon: <Dna /> }
             ]
         },
         {
             title: "List your property",
             items: [
-                { name: "List your property", icon: "HomeHospital" }
+                { name: "List your property", icon: <Hospital /> }
             ]
         },
         {
             title: "Help and support",
             items: [
-                { name: "Contact Customer Service", icon: "UserCheck" },
-                { name: "Partner dispute", icon: "Users" }
+                { name: "Contact Customer Service", icon: <UserCheck /> },
+                { name: "Partner dispute", icon: <Users /> }
             ]
         },
         {
             title: "Inspiration",
             items: [
-                { name: "Seasonal and holiday deals", icon: "Offer" },
-                { name: "Travel articles", icon: "Explore" }
+                { name: "Seasonal and holiday deals", icon: <HandCoins /> },
+                { name: "Travel articles", icon: <Telescope /> }
             ]
         },
         {
             title: "Settings and legal",
             items: [
-                { name: "About Booking.com", icon: "InfoCircle" },
-                { name: "Careers", icon: "CalendarUser" },
-                { name: "Become an affiliate", icon: "CheckCircle" },
-                { name: "Press centre", icon: "Windows" },
-                { name: "Privacy & cookies", icon: "Virus" },
-                { name: "Terms and conditions", icon: "DocumentCheck" },
-                { name: "Sittings", icon: "Settings" },
-                { name: "Log Out", icon: "Logout" }
+                { name: "About Booking.com", icon: <BrainCircuit /> },
+                { name: "Careers", icon: <CalendarSearch /> },
+                { name: "Become an affiliate", icon: <CircleCheck /> },
+                { name: "Press centre", icon: <Wind /> },
+                { name: "Privacy & cookies", icon: <Biohazard /> },
+                { name: "Terms and conditions", icon: <FileCheck /> },
+                { name: "Sittings", icon: <Cog /> },
+                { name: "Log Out", icon: <LogOut /> }
             ]
         }
     ];
@@ -86,14 +85,7 @@ export default function DialogCountries() {
                         <>
                             <Disclosure.Button className="flex w-full justify-between rounded-lg bg-blue-300 px-4 py-2 text-left text-sm font-medium text-[#013b94] hover:bg-blue-200 focus:outline-none focus-visible:ring focus-visible:ring-blue-500/75">
                                 <span>What is your Country?</span>
-                                <SWMIcon
-                                    name={open ? "ChevronUp" :"ChevronDown" }
-                                    set="broken"
-                                    color="blue"
-                                    strokeWidth={1.8}
-                                    size={20}
-                                    className={`transform ${open ? 'rotate-180' : ''} h-5 w-5 text-[#013b94]`}
-                                />
+                                {open ? <ChevronUp className="h-5 w-5 text-[#013b94]" /> : <ChevronDown className="h-5 w-5 text-[#013b94]" />}
 
                             </Disclosure.Button>
                             <Transition
@@ -104,29 +96,29 @@ export default function DialogCountries() {
                                 leaveFrom="transform scale-100 opacity-100"
                                 leaveTo="transform scale-95 opacity-0"
                             >
-                            <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
-                                <div className="mt-2 overflow-auto grid grid-cols-2 gap-2 max-h-96 " >
-                                    {countries ? (
-                                        countries?.map((item: any) => (
-                                            <div key={item.name} className="flex space-x-3  items-center hover:bg-gray-100 p-3 rounded-md ">
-                                                <div className="w-25 h-25 rounded-full overflow-hidden">
-                                                    <Image
-                                                        className="rounded-full"
-                                                        src={item.flag}
-                                                        alt="Country Flag"
-                                                        width={50}
-                                                        height={50}
-                                                    />
+                                <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
+                                    <div className="mt-2 overflow-auto grid grid-cols-2 gap-2 max-h-96 " >
+                                        {countries ? (
+                                            countries?.map((item: any) => (
+                                                <div key={item.name} className="flex space-x-3  items-center hover:bg-gray-100 p-3 rounded-md ">
+                                                    <div className="w-25 h-25 rounded-full overflow-hidden">
+                                                        <Image
+                                                            className="rounded-full"
+                                                            src={item.flag}
+                                                            alt="Country Flag"
+                                                            width={50}
+                                                            height={50}
+                                                        />
+                                                    </div>
+                                                    <p>{item.name}</p>
                                                 </div>
-                                                <p>{item.name}</p>
-                                            </div>
-                                        ))
-                                    ) : (
-                                        <p>Loading...</p>
-                                    )}
-                                </div>
+                                            ))
+                                        ) : (
+                                            <p>Loading...</p>
+                                        )}
+                                    </div>
 
-                            </Disclosure.Panel>
+                                </Disclosure.Panel>
                             </Transition>
                         </>
                     )}
@@ -138,18 +130,17 @@ export default function DialogCountries() {
                             {item.items.map((subItem, subIndex) => (
                                 <div key={subIndex} className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-50">
                                     <div className="flex h-6 w-6 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200">
-                                        <SWMIcon name={subItem.icon} set="broken" color="#013B94" strokeWidth={1.8} size={27} />
-                                        
+                                        {React.cloneElement(subItem.icon, { color: "#013B94", strokeWidth: 1.8, size: 27 })}
                                     </div>
-                                        <span>{subItem.name}</span>
-                                 
+                                    <span>{subItem.name}</span>
+
                                 </div>
                             ))}
                         </div>
                     ))}
                 </div>
 
-               
+
             </div>
         </div>
 
