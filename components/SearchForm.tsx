@@ -14,9 +14,8 @@ import {
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { BedDouble, Baby, Search, UserRound, DoorClosed } from "lucide-react";
+import { BedDouble, Baby, Search, UserRound, DoorClosed, CalendarPlus } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
-import { SWMIcon } from 'react-swm-icon-pack';
 import { format } from 'date-fns'
 import { Calendar } from "./ui/calendar";
 import { cn } from "@/lib/utils";
@@ -54,29 +53,29 @@ export default function SearchForm() {
     })
 
     function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
-    const checkin_monthday = values.dates.from.getDate().toString()
-    const checkin_month = (values.dates.from.getMonth() + 1).toString()
-    const checkin_year = values.dates.from.getFullYear().toString()
-    const checkout_monthday = values.dates.to.getDate().toString()
-    const checkout_month = (values.dates.to.getMonth() + 1).toString()
-    const checkout_year = values.dates.to.getFullYear().toString()
+        console.log(values)
+        const checkin_monthday = values.dates.from.getDate().toString()
+        const checkin_month = (values.dates.from.getMonth() + 1).toString()
+        const checkin_year = values.dates.from.getFullYear().toString()
+        const checkout_monthday = values.dates.to.getDate().toString()
+        const checkout_month = (values.dates.to.getMonth() + 1).toString()
+        const checkout_year = values.dates.to.getFullYear().toString()
 
-  const checkin = `${checkin_year}-${checkin_month}-${checkin_monthday}`
-const checkout = `${checkout_year}-${checkout_month}-${checkout_monthday}`
+        const checkin = `${checkin_year}-${checkin_month}-${checkin_monthday}`
+        const checkout = `${checkout_year}-${checkout_month}-${checkout_monthday}`
 
-    const url=new URL('https://www.booking.com/searchresults.html')
-    url.searchParams.set('ss',values.location)
-    url.searchParams.set('group_adults',values.adults)
-    url.searchParams.set('group_children',values.children)
-    url.searchParams.set('no_rooms',values.rooms)
-    url.searchParams.set('checkin',values.checkin)
-    url.searchParams.set('checkout',values.checkout)
+        const url = new URL('https://www.booking.com/searchresults.html')
+        url.searchParams.set('ss', values.location)
+        url.searchParams.set('group_adults', values.adults)
+        url.searchParams.set('group_children', values.children)
+        url.searchParams.set('no_rooms', values.rooms)
+        url.searchParams.set('checkin', checkin)
+        url.searchParams.set('checkout', checkout)
 
-    router.push(`{/search?url=${url.href}}`)
-   
+        router.push(`{/search?url=${url.href}}`)
 
-}
+
+    }
 
     return (
         <Form {...form} >
@@ -114,7 +113,7 @@ const checkout = `${checkout_year}-${checkout_month}-${checkout_monthday}`
                                             className={`w-full lg:w-[300px] justify-start text-left font-normal gap-3 ${field.value?.from ? "text-muted-foreground" : ""
                                                 }`}
                                         >
-                                            <SWMIcon name="CalendarPlus" set="broken" color="black" size={22} className="gap-1 h-4 opacity-50" />
+                                            <CalendarPlus  color="black" size={22} className="gap-1 h-4 opacity-50" />
                                             {field.value?.from ? (
                                                 field.value?.to ? (
                                                     <>
