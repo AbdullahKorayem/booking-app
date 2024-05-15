@@ -2,12 +2,10 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { SWMIcon } from 'react-swm-icon-pack';
-import { useState, Fragment, useEffect } from "react"
+import React, { useState, Fragment, useEffect } from "react"
 import { Transition, Popover } from "@headlessui/react"
 import HeaderDialog from "./HeaderDialog";
-import { PlaneTakeoff, CarFront, FerrisWheel, Shell } from "lucide-react";
-import { toGetAll } from "@/lib/getAllLocations";
+import { PlaneTakeoff, CarFront, FerrisWheel, Shell, Accessibility, PhoneCall, Play, Home, Send, MessageCircleMore, CircleChevronDown } from "lucide-react";
 const axios = require('axios');
 
 
@@ -22,24 +20,24 @@ export default function Header() {
             name: "Book a Stay",
             description: "Get a better understanding of where your traffic is coming from.",
             href: "#",
-            icon: "Home1"
+            icon: <Home />
         },
         {
             name: "Book A Flight",
             description: "Speak directly to your customers in a more meaningful way.",
             href: "Flights",
-            icon: "Send2"
+            icon: <Send />
         }, {
             name: "Connect Our Support Team",
             description: "Your customers' data will be safe and secure.",
             href: "#",
-            icon: "MessageCircleLines"
+            icon: <MessageCircleMore />
         }
     ]
 
     const callsToAction = [
-        { name: "Book a Stay", href: "#", icon: "PhoneCall" },
-        { name: "Contact Support", href: "#", icon: "Play" }
+        { name: "Book a Stay", href: "#", icon: <PhoneCall /> },
+        { name: "Contact Support", href: "#", icon: <Play /> }
     ]
 
     const navLinks = [
@@ -54,7 +52,7 @@ export default function Header() {
             const options = {
                 method: 'GET',
                 url: 'https://booking-com15.p.rapidapi.com/api/v1/test',
-                mode:'no-cors',
+                mode: 'no-cors',
                 headers: {
                     'X-RapidAPI-Key': 'ca00eaa66cmshf9a8f2d64e38074p17bd0ejsn9c54345e7e16',
                     'X-RapidAPI-Host': 'booking-com15.p.rapidapi.com'
@@ -94,7 +92,7 @@ export default function Header() {
                     <Popover className="relative">
                         <Popover.Button className="flex items-center gap-x-2 correctedProperty text-white outline-none">
                             Stays
-                            <SWMIcon name="ChevronDown" strokeWidth={2.5} set="broken" color="white" size={22} />
+                            <CircleChevronDown color="white" size={22} />
                         </Popover.Button>
                         <Transition as={Fragment}
                             enter="transition ease-out duration-300"
@@ -109,8 +107,7 @@ export default function Header() {
                                     {products.map((item) => (
                                         <div key={item.name} className=" group relative flex items-center gap-x-6 rounded-lg p-4 text-sm leading-6 hover:bg-gray-100 hover:duration-700">
                                             <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-gray-200 hover:duration-1000">
-                                                <SWMIcon name={item.icon} set="broken" color="#013B94"
-                                                    strokeWidth={1.8} size={27} />
+                                                {React.cloneElement(item.icon, { color: "#013B94", strokeWidth: 1.8, size: 27 })}
                                             </div>
 
                                             <div className="flex-auto">
@@ -125,8 +122,8 @@ export default function Header() {
                                 </div>
                                 <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50 hover:duration-700">
                                     {callsToAction.map((item) => (<a key={item.name} href={item.href} className="flex items-center justify-center gap-x-2.5 p-3 text-sm font-smeibold leading-6 text-[#013B94] hover:bg-gray-200 hover:duration-700">
-                                        <SWMIcon name={item.icon} set="broken" color="#013B94"
-                                            strokeWidth={1.8} size={27} /> {item.name}
+                                        {React.cloneElement(item.icon, { color: "#013B94", strokeWidth: 1.8, size: 27 })}
+
                                     </a>))}
                                 </div>
                             </Popover.Panel>
@@ -138,7 +135,7 @@ export default function Header() {
 
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end ">
                     <a href="#" className="text-sm font-semibold leading-6 text-white flex p-4 gap-3" >
-                        <SWMIcon name="Logout" set="broken" color="#fff"
+                        <Accessibility color="#fff"
                             strokeWidth={1.8} size={24} /> Log Out</a>
                 </div>
             </nav>
